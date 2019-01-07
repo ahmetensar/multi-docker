@@ -9,10 +9,10 @@ script:
   - docker run ahmetensar/react-test npm run test -- --coverage
 
 after_success:
-  - docket build -t ahmetensar/multi-client ./client
-  - docket build -t ahmetensar/multi-nginx ./nginx
-  - docket build -t ahmetensar/multi-server ./server
-  - docket build -t ahmetensar/multi-worker ./worker
+  - docker build -t ahmetensar/multi-client ./client
+  - docker build -t ahmetensar/multi-nginx ./nginx
+  - docker build -t ahmetensar/multi-server ./server
+  - docker build -t ahmetensar/multi-worker ./worker
   
   # Login to docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
